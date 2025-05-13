@@ -1,53 +1,58 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
+  /* Grays / Neutrals */
+  --white: #ffffff;
+  --black: #000000;
+  --gray-50:  #f2f2f2;
+  --gray-100: #d9d9d9;
+  --gray-200: #bfbfbf;
+  --gray-300: #a6a6a6;
+  --gray-400: #8c8c8c;
+  --gray-500: #737373;
+  --gray-600: #595959;
+  --gray-700: #404040;
+  --gray-800: #262626; 
+  --gray-900: #0d0d0d;
 
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
+  /* Success, Warning, Danger, Info */
+  --success: #22c55e;
+  --warning: #facc15;
+  --danger: #ef4444;
+  --info: #3b82f6;
 
-  --vt-c-indigo: #2c3e50;
+  /* Primary brand colors */
+  --primary: #6366F1;
+  --primary-light:#a1a3f7;
+  --primary-dark: #3b3d91;
 
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+  --background: var(--white);
+  --background-alt: var(--gray-50);
+  --card-bg: var(--gray-100);
 
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+  --text: var(--gray-900);
+  --text-muted: var(--gray-500);
+
+  --border: var(--gray-200);
+  --border-strong: var(--gray-300);
+
+  --btn-primary-bg: var(--primary);
+  --btn-primary-text: var(--white);
+  --btn-primary-hover: var(--primary-dark)
 }
 
-/* semantic color variables for this project */
-:root {
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
-
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
-
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
-
-  --section-gap: 160px;
-}
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
+  :root{
+    --background:var(--gray-900);
+    --background-alt: var(--gray-800);
+    --card-bg: var(--gray-700);
 
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
+    --text: var(--gray-100);
+    --text-muted: var(--gray-500);
 
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
-  }
+    --border: var(--gray-600);
+    }
+  
 }
 
 *,
@@ -60,8 +65,8 @@
 
 body {
   min-height: 100vh;
-  color: var(--color-text);
-  background: var(--color-background);
+  color: var(--text);
+  background: var(--background);
   transition:
     color 0.5s,
     background-color 0.5s;
