@@ -51,7 +51,7 @@
     border-radius: 2px;
     top: 5px;
     left: 5px;
-    color: var(--white-color);
+    color: var(--white);
   }
 
   .card-image{
@@ -70,7 +70,7 @@
     width: 100%;
     border-radius: 0 0 5px 5px;
     padding: 0.5rem 1rem;
-    color: var(--white-color);
+    color: var(--white);
   }
 
   @media (max-width: 768px) {

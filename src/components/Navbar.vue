@@ -13,12 +13,13 @@
 
   .navbar-wrapper {
     background-color: var(--primary-dark);
-    padding: 0.7rem 2rem;
+    height: 60px;
+    padding: 10px 2rem;
 
   }
 
   .logo {
-    height: 60px;
+    height: 100%;
   }
 
   .logo>img {

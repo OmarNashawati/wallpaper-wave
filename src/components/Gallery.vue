@@ -3,12 +3,14 @@
   import db from '../shared-logic';
 
   import GalleryItem from '@/components/GalleryItem.vue';
+import { ref } from 'vue';
   // const props = defineProps([
   //   'images',
   // ])
 
   const route = useRoute();
 
+  const title = ref(route.params.collection)
   const images = db.images;
   
 </script>
@@ -17,7 +19,7 @@
   <div class="gallery-wrapper">
 
       <div class="gallery-title">
-        <h1>Technology & Innovation</h1>
+        <h1>{{ title }}</h1>
       </div>
       
       <div class="gallery">

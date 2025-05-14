@@ -2,11 +2,6 @@
   import { RouterView } from 'vue-router';
 
   import Navbar from './components/Navbar.vue';
-
-
-  import test from './shared-logic'
-
-  console.log(test);
   
 </script>
 
