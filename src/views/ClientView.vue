@@ -7,8 +7,12 @@
 <template>
   <div class="client-view-wrapper">
 
-    <Sidebar />
-    <RouterView />
+    <div>
+      <Sidebar />
+    </div>
+    <div>
+      <RouterView />
+    </div>
 
   </div>
 </template>

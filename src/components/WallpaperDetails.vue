@@ -46,7 +46,7 @@
 </script>
 <template>
 
-  <div class="warpper">
+  <div class="details-warpper">
 
     <!-- <div v-if="toggleFullReview" class="review-image-full">
       <div>
@@ -62,7 +62,7 @@
         @click="router.push('/')"
         class="back-btn"
       >
-        <i class="pi pi-angle-left"></i> Back To Home
+        <i class="pi pi-home"></i> Back To Home
       </button>
     </div>
   
@@ -87,8 +87,9 @@
 </template>
 
 <style scoped>
-  .wrapper {
+  .details-warpper {
     position: relative;
+    padding: 1rem;
   }
   .back-div{
     margin-bottom: 10px;
@@ -99,7 +100,7 @@
     border: none;
     outline: none;
     text-decoration: underline;
-    padding: 0.7rem 1rem;
+    padding: 0.7rem 0;
     cursor: pointer;
   }
 

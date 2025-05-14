@@ -24,18 +24,20 @@
 <style scoped>
   .sidebar-wrapper{
     background-color: var(--background-alt);
-    width: 250px;
+    width: 200px;
     height: 100%;
     padding: 1rem 0rem;
   }
 
   .sidebar-wrapper>h2{
     padding: 1rem;
+    font-size: 1rem;
   }
 
   li {
     color: var(--text-muted);
     padding: 8px 1rem;
+    font-size: 0.8rem;
   }
 
   li:hover {
