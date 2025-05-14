@@ -1,1 +1,13 @@
 @import './base.css';
+
+
+ul{
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}

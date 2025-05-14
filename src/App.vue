@@ -1,12 +1,21 @@
 <script setup>
-const appName = "Wallpaper Wave"
+  import Navbar from './components/Navbar.vue';
+
 </script>
 
 <template>
-  <div>
-    {{ appName }}
-  </div>
+
+  <header>
+    <Navbar />
+  </header>
+
+  <main>
+    
+  </main>
 </template>
 
 <style scoped>
+
+  
+
 </style>
