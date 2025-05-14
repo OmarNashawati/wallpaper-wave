@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="wrapper">
+  <div class="navbar-wrapper">
     <div class="logo">
       <img src="../assets/logo.svg" alt="">
     </div>
@@ -11,7 +11,7 @@
 
 <style scoped>
 
-  .wrapper {
+  .navbar-wrapper {
     background-color: var(--primary-dark);
     padding: 0.7rem 2rem;
 

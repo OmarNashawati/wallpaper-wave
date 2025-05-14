@@ -2,7 +2,7 @@
 </script>
 
 <template>
-
+  Client
 </template>
 
 <style scoped>

@@ -2,7 +2,7 @@
 </script>
 
 <template>
-
+Dashboard
 </template>
 
 <style scoped>
