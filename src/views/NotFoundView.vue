@@ -1,4 +1,7 @@
 <script setup>
+  import { useRouter } from 'vue-router';
+
+  const router = useRouter();
 </script>
 
 <template>
@@ -11,7 +14,12 @@
     </div>
   
     <div class="actions-div">
-      <a href="/">Return to the Homepage.</a>
+      <i 
+        class=" pi pi-home return-to-home-link" 
+        @click="router.push('/')"
+      >
+       Return to the Homepage.
+      </i>
     </div>
   </div>
 </template>
@@ -36,12 +44,13 @@
     padding-top: 2rem;
     text-align: center;
   }
-  .actions-div a{
+  
+  .return-to-home-link{
     color:var(--text-muted);
     cursor:pointer;
+    text-decoration: underline;    
   }
-
-  .actions-div a:hover {
+  .return-to-home-link:hover {
     opacity: 0.8;
   }
   

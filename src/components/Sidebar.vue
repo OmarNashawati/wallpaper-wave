@@ -1,11 +1,19 @@
 <script setup>
-  const collections = [
-    "Nature & Landscapes",
-    "Urban & City Life",
-    "Abstract Backgrounds",
-    "Animals & Wildlife",
-    "Technology & Innovation",
-  ]
+  import { useRouter } from 'vue-router';
+
+  const router = useRouter();
+  const props = defineProps([
+    'collections'
+  ]);
+
+  function onCollectionItemClicked (collectionItem){
+    if(collectionItem.name === 'All'){
+      router.push('/')
+    }else{
+      router.push(`/collections/${collectionItem.url}`)
+    }
+
+  }
 </script>
 
 <template>
@@ -14,7 +22,15 @@
     <h2>Collections</h2>
     <nav>
       <ul>
-        <li v-for="item in collections">{{ item }}</li>
+        <li @click="onCollectionItemClicked({name:'All'})">
+          All
+        </li>
+        <li 
+          v-for="item in props.collections"
+          @click="onCollectionItemClicked(item)"
+        >
+          {{ item.name }}
+        </li>
       </ul>
     </nav>
   </div>

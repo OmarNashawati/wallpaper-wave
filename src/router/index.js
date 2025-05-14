@@ -16,11 +16,13 @@ const router = createRouter({
       component: ClientView,
       children:[
         { 
-          path:'',
+          path:'/',
+          name:'gallert',
           component: Gallery
         },
         {
           path:'images/:id',
+          name:'wallpaper-details',
           component: WallpaperDetails
         }
       ]

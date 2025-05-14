@@ -3,6 +3,11 @@
 
   import Navbar from './components/Navbar.vue';
 
+
+  import test from './shared-logic'
+
+  console.log(test);
+  
 </script>
 
 <template>
