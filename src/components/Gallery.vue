@@ -1,33 +1,16 @@
 <script setup>
-  import GalleryItem from '@/components/GalleryItem.vue';
+  import { useRoute } from 'vue-router';
+  import db from '../shared-logic';
 
+  import GalleryItem from '@/components/GalleryItem.vue';
   // const props = defineProps([
   //   'images',
   // ])
 
+  const route = useRoute();
 
-  const images = [
-      {
-        "id":"73375295-fd07-4ff4-8b73-25f791bc50a4",
-        "url":"https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "size":6861646,
-        "collections":["Abstract Backgrounds"],
-        "downloadable":true,
-        "dimensions":"3840x2400px",
-        "copyright":""
-      },
-      {
-        "id":"0023174a-8240-44eb-bb5c-55acd693bd12",
-        "url":"https://images.pexels.com/photos/733090/pexels-photo-733090.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "size":3412363,
-        "collections":["Architecture & Interiors"],
-        "downloadable":true,
-        "dimensions":"5953x3349px",
-        "copyright":""
-      },
-
-  ]
-
+  const images = db.images;
+  
 </script>
 
 <template>

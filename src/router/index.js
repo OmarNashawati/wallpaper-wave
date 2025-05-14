@@ -21,10 +21,15 @@ const router = createRouter({
           component: Gallery
         },
         {
-          path:'images/:id',
+          path:'/collections/:collection',
+          name:'view-by-collection',
+          component:Gallery
+        },
+        {
+          path:'/images/:id',
           name:'wallpaper-details',
           component: WallpaperDetails
-        }
+        },
       ]
     },
     {

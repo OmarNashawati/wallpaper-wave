@@ -1,5 +1,6 @@
 <script setup>
   import { useRouter } from 'vue-router';
+  import db from '../shared-logic';
   const router = useRouter();  
 
   const props = defineProps([
@@ -18,7 +19,7 @@
     
     <div class="card-image">
       <img 
-        :src="`${props.image.url}`" 
+        :src="`${db.BASE_URL}/${props.image.url}`" 
         alt="">
     </div>
 
