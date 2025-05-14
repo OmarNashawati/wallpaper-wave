@@ -1,14 +1,14 @@
 <script setup>
+  import { RouterView } from 'vue-router';
+
   import Sidebar from '@/components/Sidebar.vue';
-  import Gallery from '@/components/Gallery.vue';
 </script>
 
 <template>
   <div class="client-view-wrapper">
 
     <Sidebar />
-    <Gallery />
-
+    <RouterView />
 
   </div>
 </template>

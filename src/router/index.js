@@ -2,6 +2,9 @@ import {createRouter, createWebHistory} from 'vue-router';
 
 import ClientView from '@/views/ClientView.vue';
 import DashboardView from '@/views/DashboardView.vue';
+import Gallery from '@/components/Gallery.vue';
+import WallpaperDetails from '@/components/WallpaperDetails.vue';
+
 import NotFoundView from '@/views/NotFoundView.vue';
 
 const router = createRouter({
@@ -10,7 +13,17 @@ const router = createRouter({
     {
       path:'/',
       name:'client-home-view',
-      component: ClientView
+      component: ClientView,
+      children:[
+        { 
+          path:'',
+          component: Gallery
+        },
+        {
+          path:'images/:id',
+          component: WallpaperDetails
+        }
+      ]
     },
     {
       path:'/dashboard',
