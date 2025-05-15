@@ -16,7 +16,7 @@
       images.value = db.images.filter((img) => img.collections[0] === currentCollection.name);
       
     }else{
-      currentCollection = {name:'Wallpaper'}
+      currentCollection = {name:'Wallpapers'}
       images.value = db.images;
     }
   }
