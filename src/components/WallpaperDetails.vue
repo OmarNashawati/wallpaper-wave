@@ -1,6 +1,7 @@
 <script setup>
   import { useRoute, useRouter } from 'vue-router';
-  // import { onBeforeMount, ref } from 'vue';
+  import db from '../shared-logic';
+  import { onBeforeMount, ref } from 'vue';
   // import images from '@/assets/images-meta-data.json';
   // // import {FILES_BASE_URL} from '../assets/Shared.js';
   // const FILES_BASE_URL = '../../backend/4K-Wallpaper-Dump/'
@@ -10,12 +11,12 @@
 
 
   const {id}  = route.params
-  // const wallpaper = ref(null)
-  // let toggleFullReview =  ref(false);
+  const wallpaper = ref(null)
+  let toggleFullReview =  ref(false);
 
-  // onBeforeMount(() => {
-  //   wallpaper.value = images.find(w => w.id === id);    
-  // })
+  onBeforeMount(() => {
+    wallpaper.value = db.images.find(w => w.id === id);    
+  })
 
   // const fullReviewOpen = () => {
   //   toggleFullReview.value = true
@@ -25,15 +26,15 @@
   // }
 
   
-  // const calculateImageSize = () => {
-  //   if(wallpaper.value.size < 1000000){
-  //     return `${(wallpaper.value.size / 1024 ).toFixed(2)} KB` 
-  //   }else{
-  //     return `${(wallpaper.value.size / (1024*1024)).toFixed(2)} MB` 
-  //   }
-  // }
+  const calculateImageSize = () => {
+    if(wallpaper.value.size < 1000000){
+      return `${(wallpaper.value.size / 1024 ).toFixed(2)} KB` 
+    }else{
+      return `${(wallpaper.value.size / (1024*1024)).toFixed(2)} MB` 
+    }
+  }
 
-  // function download() {
+  function download() {
   //   const link = document.createElement('a');
   //   link.href = FILES_BASE_URL + wallpaper.value.url;
   //   link.download = wallpaper.value.url;
@@ -41,21 +42,21 @@
 
   //   URL.revokeObjectURL(link.href);
     
-  // }
+  }
 
 </script>
 <template>
 
   <div class="details-warpper">
 
-    <!-- <div v-if="toggleFullReview" class="review-image-full">
+    <div v-if="toggleFullReview" class="review-image-full">
       <div>
         <i @click="toggleFullReview = false" class="pi pi-times close-full"></i>
       </div>
       <div>
-        <img :src="`${FILES_BASE_URL}${wallpaper.url}`" alt="">
+        <img :src="`${db.BASE_URL}/${wallpaper.url}`" alt="">
       </div>
-    </div> -->
+    </div>
 
     <div class="back-div">
       <button 
@@ -67,9 +68,8 @@
     </div>
   
     <div class="wallpaper-details">
-      {{ id }}
-      <!-- <div class="image-review">
-        <img @click="toggleFullReview = true" :src="`${FILES_BASE_URL}${wallpaper.url}`" alt="">
+      <div class="image-review">
+        <img @click="toggleFullReview = true" :src="`${db.BASE_URL}/${wallpaper.url}`" alt="">
       </div>
 
       <div>
@@ -80,7 +80,7 @@
           <p><i class="pi pi-hashtag"></i> Tags: {{ wallpaper.collections[0] }}</p>
           <button @click="download()" class="download-btn">Download</button>
         </div>
-      </div> -->
+      </div>
       
     </div>
   </div>
@@ -88,7 +88,6 @@
 
 <style scoped>
   .details-warpper {
-    position: relative;
     padding: 1rem;
   }
   .back-div{
@@ -116,13 +115,14 @@
 
   .image-review{
     max-width: 100%;
+    cursor: zoom-in;
   }
 
   .image-info{
     width: 250px;
     height: fit-content;
     padding: 1rem;
-    background-color: var(--color-surface);
+    background-color: var(--card-bg);
     border-radius: 0.5rem;
     box-shadow: var(--shadow)
   }
@@ -132,16 +132,16 @@
   .download-btn{
     width: 100%;
     padding: 1rem 0;
-    background-color: var(--color-primary);
+    background-color: var(--primary);
     border: none;
     outline: none;
     border-radius: 5px;
-    color: var(--white-color);
+    color: var(--white);
     margin-top: 2.5rem;
   }
 
   .download-btn:hover{
-    background-color: var(--color-secondary);
+    background-color: var(--btn-primary-hover);
     cursor: pointer;
     opacity: 0.8;
   }
@@ -161,7 +161,6 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 1rem;
   }
@@ -174,7 +173,6 @@
     padding: 8px;
     font-size: large;
     cursor: pointer;
-    background-color: var(--color-secondary);
     border-radius: 50%;
     margin-bottom: 5px;
   }
