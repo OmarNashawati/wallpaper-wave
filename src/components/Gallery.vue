@@ -24,7 +24,7 @@
   onBeforeMount(() => {
     changeCollection();
   })
-
+  
   watch(route, () => {
     changeCollection();
   })
@@ -44,6 +44,10 @@
         <GalleryItem v-for="image in images" :key="image.id" :image="image"/>
 
       </div>
+
+      <!-- <div class="pager">
+        <button v-for="page in pages">{{ page }}</button>
+      </div> -->
     </div>
 </template>
 
