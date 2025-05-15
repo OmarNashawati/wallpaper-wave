@@ -19,7 +19,7 @@
     
     <div class="card-image">
       <img 
-        :src="`${db.BASE_URL}/${props.image.url}`" 
+        :src="`${db.BASE_URL}${props.image.url}`" 
         alt="">
     </div>
 

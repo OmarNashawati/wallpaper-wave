@@ -46,7 +46,7 @@
         <i @click="toggleFullReview = false" class="pi pi-times close-full"></i>
       </div>
       <div>
-        <img :src="`${db.BASE_URL}/${wallpaper.url}`" alt="">
+        <img :src="`${db.BASE_URL}${wallpaper.url}`" alt="">
       </div>
     </div>
 
@@ -61,7 +61,7 @@
   
     <div class="wallpaper-details">
       <div class="image-review">
-        <img @click="toggleFullReview = true" :src="`${db.BASE_URL}/${wallpaper.url}`" alt="">
+        <img @click="toggleFullReview = true" :src="`${db.BASE_URL}${wallpaper.url}`" alt="">
       </div>
 
       <div>
