@@ -10,7 +10,7 @@
 <template>
   <div class="client-view-wrapper">
 
-    <div>
+    <div class="sidbar-div">
       <Sidebar :collections="db.collections" />
     </div>
     <div>
@@ -25,6 +25,15 @@
 .client-view-wrapper{
   display: flex;
   flex-direction: row;
+}
+.sidbar-div{
+  display: block;
+}
+
+@media(max-width:576px){
+  .sidbar-div{
+    display: none;
+  }
 }
 
 
