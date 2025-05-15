@@ -17,14 +17,6 @@
   onBeforeMount(() => {
     wallpaper.value = db.images.find(w => w.id === id);    
   })
-
-  // const fullReviewOpen = () => {
-  //   toggleFullReview.value = true
-  // }
-  // const fullReviewClose = () => {
-  //   toggleFullReview.value = false;
-  // }
-
   
   const calculateImageSize = () => {
     if(wallpaper.value.size < 1000000){
@@ -35,12 +27,12 @@
   }
 
   function download() {
-  //   const link = document.createElement('a');
-  //   link.href = FILES_BASE_URL + wallpaper.value.url;
-  //   link.download = wallpaper.value.url;
-  //   link.click();
+    const link = document.createElement('a');
+    link.href = db.BASE_URL + '/' + wallpaper.value.url;
+    link.download = wallpaper.value.url;
+    link.click();
 
-  //   URL.revokeObjectURL(link.href);
+    URL.revokeObjectURL(link.href);
     
   }
 
