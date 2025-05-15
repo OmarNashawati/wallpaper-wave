@@ -12,7 +12,7 @@
 <style scoped>
 
   .navbar-wrapper {
-    background-color: var(--primary-dark);
+    background-color: var(--navbar-bg);
     height: 60px;
     padding: 10px 2rem;
 

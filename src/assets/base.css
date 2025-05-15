@@ -25,9 +25,11 @@
   --primary-light:#a1a3f7;
   --primary-dark: #3b3d91;
 
+
   --background: var(--white);
   --background-alt: var(--gray-50);
   --card-bg: var(--gray-100);
+  --navbar-bg: var(--primary-dark);
 
   --text: var(--gray-900);
   --text-muted: var(--gray-500);
@@ -46,6 +48,7 @@
     --background:var(--gray-900);
     --background-alt: var(--gray-800);
     --card-bg: var(--gray-700);
+
 
     --text: var(--gray-100);
     --text-muted: var(--gray-500);

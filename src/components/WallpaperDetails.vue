@@ -13,6 +13,7 @@
   const {id}  = route.params
   const wallpaper = ref(null)
   let toggleFullReview =  ref(false);
+  let showDownloadMessage =  ref(false);
 
   onBeforeMount(() => {
     wallpaper.value = db.images.find(w => w.id === id);    
@@ -27,12 +28,18 @@
   }
 
   function download() {
+    showDownloadMessage.value = true;
     const link = document.createElement('a');
-    link.href = db.BASE_URL + '/' + wallpaper.value.url;
+    link.href = `${db.BASE_URL_download}${wallpaper.value.url}`;
     link.download = wallpaper.value.url;
     link.click();
 
     URL.revokeObjectURL(link.href);
+
+    setTimeout(()=>{
+      showDownloadMessage.value = false;
+    },3000);
+
     
   }
 
@@ -45,7 +52,7 @@
       <div>
         <i @click="toggleFullReview = false" class="pi pi-times close-full"></i>
       </div>
-      <div>
+      <div @click="toggleFullReview = false" class="review-image-img">
         <img :src="`${db.BASE_URL}${wallpaper.url}`" alt="">
       </div>
     </div>
@@ -58,6 +65,7 @@
         <i class="pi pi-home"></i> Back To Home
       </button>
     </div>
+    
   
     <div class="wallpaper-details">
       <div class="image-review">
@@ -70,6 +78,8 @@
           <p><i class="pi pi-folder"></i> Size: {{calculateImageSize()}}</p>
           <p><i class="pi pi-arrow-up-right-and-arrow-down-left-from-center"></i> Dimentions: {{ wallpaper.dimensions }}</p>
           <p><i class="pi pi-hashtag"></i> Tags: {{ wallpaper.collections[0] }}</p>
+
+          <div v-if="showDownloadMessage" id="download-message">Your image will be downloaded in a few seconds...</div>
           <button @click="download()" class="download-btn">Download</button>
         </div>
       </div>
@@ -161,6 +171,10 @@
     max-width: 100%;
   }
 
+  .review-image-img{
+    cursor: zoom-out;
+  }
+
   .close-full{
     padding: 8px;
     font-size: large;
@@ -172,4 +186,15 @@
   .close-full:hover{
     opacity: 0.8;
   }
+
+   #download-message {
+      background-color: var(--background-alt);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 10px;
+      margin-top: 15px;
+      border-radius: 6px;
+      font-family: Arial, sans-serif;
+      width: fit-content;
+    }
 </style>
