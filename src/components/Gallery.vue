@@ -1,25 +1,42 @@
 <script setup>
+  import { onBeforeMount, ref, watch } from 'vue';
   import { useRoute } from 'vue-router';
   import db from '../shared-logic';
 
   import GalleryItem from '@/components/GalleryItem.vue';
-import { ref } from 'vue';
-  // const props = defineProps([
-  //   'images',
-  // ])
 
   const route = useRoute();
+  let currentCollection = null;
+  const images = ref(null);
 
-  const title = ref(route.params.collection)
-  const images = db.images;
-  
+  function changeCollection(){
+
+    if(route.params.collection){
+      currentCollection = db.collections.find(c => c.url === route.params.collection);
+      images.value = db.images.filter((img) => img.collections[0] === currentCollection.name);
+      
+    }else{
+      currentCollection = {name:'Wallpaper'}
+      images.value = db.images;
+    }
+  }
+
+  onBeforeMount(() => {
+    changeCollection();
+  })
+
+  watch(route, () => {
+    changeCollection();
+  })
+
+
 </script>
 
 <template>
   <div class="gallery-wrapper">
 
       <div class="gallery-title">
-        <h1>{{ title }}</h1>
+        <h1>{{ currentCollection.name }}</h1>
       </div>
       
       <div class="gallery">
