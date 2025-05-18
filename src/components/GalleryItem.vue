@@ -19,7 +19,8 @@
     
     <div class="card-image">
       <img 
-        :src="`${db.BASE_URL}${props.image.url}`" 
+        loading="lazy"
+        :src="`${db.BASE_URL_small}${props.image.url}`" 
         alt="">
     </div>
 
@@ -65,7 +66,7 @@
 
   .image-name{
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-image: linear-gradient( 180deg,rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.8));
     bottom: 0;
     width: 100%;
     border-radius: 0 0 5px 5px;
