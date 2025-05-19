@@ -13,7 +13,7 @@
     <div class="sidbar-div">
       <Sidebar :collections="db.collections" />
     </div>
-    <div>
+    <div class="main-div">
       <RouterView />
     </div>
 
@@ -28,6 +28,10 @@
 }
 .sidbar-div{
   display: block;
+}
+
+.main-div{
+  flex: 1;
 }
 
 @media(max-width:576px){

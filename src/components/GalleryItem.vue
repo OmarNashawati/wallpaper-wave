@@ -33,10 +33,10 @@
 <style scoped>
   .wallpaper-card{
     height: fit-content;
-    flex: 1 1 calc(33.333% - 2rem);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    /* flex: 1 1 calc(33.333% - 2rem); */
+    width: 300px;
     max-width: 100%;
-    min-width: 300px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     overflow: hidden;
     border-radius: 5px;
     background-color: var(--color-surface);
@@ -56,8 +56,7 @@
   }
 
   .card-image{
-    overflow: hidden;
-    height: 180px;
+    height:  168px;
   }
 
   .wallpaper-card:hover .card-image>img{
@@ -74,13 +73,32 @@
     color: var(--white);
   }
 
+
+  @media (max-width: 2200px) {
+    .wallpaper-card {
+        flex: 1 1 calc(20% - 2rem);
+    }
+  }
+
+  @media (max-width: 2200px) {
+    .wallpaper-card {
+        flex: 1 1 calc(25% - 2rem);
+    }
+  }
+
+  @media (max-width: 1768px) {
+    .wallpaper-card {
+      flex: 1 1 calc(33.333% - 2rem);
+    }
+  }
+
   @media (max-width: 768px) {
     .wallpaper-card {
       flex: 1 1 calc(50% - 2rem);
     }
   }
 
-  @media(max-width:480px){
+  @media(max-width:520px){
     .wallpaper-card{
       flex: 1 1 100%;
     }
