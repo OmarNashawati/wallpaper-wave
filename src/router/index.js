@@ -2,7 +2,7 @@ import {createRouter, createWebHistory} from 'vue-router';
 
 import ClientView from '@/views/ClientView.vue';
 import DashboardView from '@/views/DashboardView.vue';
-import Gallery from '@/components/Gallery.vue';
+import Home from '@/components/Home.vue';
 import WallpaperDetails from '@/components/WallpaperDetails.vue';
 
 import NotFoundView from '@/views/NotFoundView.vue';
@@ -18,12 +18,12 @@ const router = createRouter({
         { 
           path:'/',
           name:'gallert',
-          component: Gallery
+          component: Home
         },
         {
           path:'/collections/:collection',
           name:'view-by-collection',
-          component:Gallery
+          component:Home
         },
         {
           path:'/images/:id',

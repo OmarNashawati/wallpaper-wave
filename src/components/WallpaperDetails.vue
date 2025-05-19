@@ -1,7 +1,9 @@
 <script setup>
   import { useRoute, useRouter } from 'vue-router';
   import db from '../shared-logic';
-  import { onBeforeMount, ref } from 'vue';
+  import { onBeforeMount, ref, watch } from 'vue';
+
+  import Gallery from './Gallery.vue';
   // import images from '@/assets/images-meta-data.json';
   // // import {FILES_BASE_URL} from '../assets/Shared.js';
   // const FILES_BASE_URL = '../../backend/4K-Wallpaper-Dump/'
@@ -10,13 +12,17 @@
   const route = useRoute();
 
 
-  const {id}  = route.params
+  let {id}  = route.params
   const wallpaper = ref(null)
   let toggleFullReview =  ref(false);
   let showDownloadMessage =  ref(false);
+  let relatedImages = ref([])
 
+  
   onBeforeMount(() => {
-    wallpaper.value = db.images.find(w => w.id === id);    
+    wallpaper.value = db.images.find(w => w.id === id);        
+    relatedImages.value = db.images.filter((img) => img.collections[0] === wallpaper.value.collections[0] && img.id !== wallpaper.value.id);   
+     
   })
   
   const calculateImageSize = () => {
@@ -26,6 +32,14 @@
       return `${(wallpaper.value.size / (1024*1024)).toFixed(2)} MB` 
     }
   }
+
+  watch(route, ()=> {
+
+    wallpaper.value = db.images.find(w => w.id === route.params.id); 
+    relatedImages.value = db.images.filter((img) => img.collections[0] === wallpaper.value.collections[0] && img.id !== wallpaper.value.id);   
+
+    
+  })
 
   function download() {
     showDownloadMessage.value = true;
@@ -39,8 +53,6 @@
     setTimeout(()=>{
       showDownloadMessage.value = false;
     },3000);
-
-    
   }
 
 </script>
@@ -85,6 +97,18 @@
       </div>
       
     </div>
+
+
+    <div class="relateed-wallpaper-wrapper">
+      <div class="title">
+        <h2>Related Wallpapers</h2>
+      </div>
+
+      <div>
+        <Gallery :images="relatedImages"/>
+      </div>
+
+    </div>
   </div>
 </template>
 
@@ -124,9 +148,10 @@
     width: 250px;
     height: fit-content;
     padding: 1rem;
-    background-color: var(--card-bg);
+    background-color: var(--background-alt);
     border-radius: 0.5rem;
-    box-shadow: var(--shadow)
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
   .image-info>p{
     margin-bottom: 5px;
@@ -143,9 +168,8 @@
   }
 
   .download-btn:hover{
-    background-color: var(--btn-primary-hover);
+    background-color: var(--btn-primary-dark-hover);
     cursor: pointer;
-    opacity: 0.8;
   }
 
   @media(max-width:960px){
@@ -165,6 +189,7 @@
     width: 100%;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 1rem;
+    z-index: 10;
   }
 
   .review-image-full img{
@@ -176,6 +201,7 @@
   }
 
   .close-full{
+    color: var(--white);
     padding: 8px;
     font-size: large;
     cursor: pointer;
@@ -196,5 +222,9 @@
       border-radius: 6px;
       font-family: Arial, sans-serif;
       width: fit-content;
+    }
+
+    .relateed-wallpaper-wrapper{
+      padding-top: 2rem;
     }
 </style>

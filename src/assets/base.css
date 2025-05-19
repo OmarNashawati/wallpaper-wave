@@ -39,7 +39,8 @@
 
   --btn-primary-bg: var(--primary);
   --btn-primary-text: var(--white);
-  --btn-primary-hover: var(--primary-light)
+  --btn-primary-hover: var(--primary-light);
+  --btn-primary-dark-hover: var(--primary-dark);
 }
 
 
