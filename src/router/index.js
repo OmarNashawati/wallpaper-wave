@@ -43,7 +43,10 @@ const router = createRouter({
       name:"Not Found",
       component: NotFoundView
     }
-  ]
+  ],
+  scrollBehavior(to,from,savedPosition) {
+    return {top:0}
+  }
 })
 
 export default router;
