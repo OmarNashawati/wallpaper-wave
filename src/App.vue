@@ -2,6 +2,7 @@
   import { RouterView } from 'vue-router';
 
   import Navbar from './components/Navbar.vue';
+  import { closeSideBar } from './shared-logic/sidbarToggle';
   
 </script>
 
@@ -9,7 +10,7 @@
 
   <div class="main-wrapper">
      <header>
-      <Navbar />
+      <Navbar/>
     </header>
     
     <main>
