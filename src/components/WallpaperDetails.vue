@@ -81,7 +81,7 @@
   
     <div class="wallpaper-details">
       <div class="image-review">
-        <img @click="toggleFullReview = true" :src="`${db.BASE_URL}${wallpaper.url}`" alt="">
+        <img @click="toggleFullReview = true" :src="`${db.BASE_URL_50}${wallpaper.url}`" alt="" loading="lazy">
       </div>
 
       <div>
@@ -142,6 +142,7 @@
   .image-review{
     max-width: 100%;
     cursor: zoom-in;
+    aspect-ratio: 16/9;
   }
 
   .image-info{
