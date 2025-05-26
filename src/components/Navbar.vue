@@ -14,9 +14,9 @@
       class="mobile-menu-toggle side-bar-toggle-btn">
       <i class="pi pi-bars side-bar-toggle-btn"></i>
     </div>
-    <div class="logo">
+    <a href="/index.html" class="logo">
       <img src="../assets/logo.svg" alt="">
-    </div>
+    </a>
   </div>
 </template>
 
