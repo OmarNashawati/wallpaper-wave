@@ -52,6 +52,10 @@
   }
 
   @media (max-width:576px){
+  .navbar-wrapper {
+    padding: 10px 1rem;
+
+  }
   .mobile-menu-toggle{
     display: flex;
   }
