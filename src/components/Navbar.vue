@@ -1,5 +1,7 @@
 <script setup>
   import { toggleSideBarOnMobile } from '@/shared-logic/sidbarToggle';
+  import { useRoute, useRouter } from 'vue-router';
+  const router = useRouter();
 
   const emit = defineEmits([
     'toggle-sidebar',
@@ -14,9 +16,9 @@
       class="mobile-menu-toggle side-bar-toggle-btn">
       <i class="pi pi-bars side-bar-toggle-btn"></i>
     </div>
-    <a href="/index.html" class="logo">
+    <div @click="router.push('/')" class="logo">
       <img src="../assets/logo.svg" alt="">
-    </a>
+    </div>
   </div>
 </template>
 
@@ -32,6 +34,7 @@
 
   .logo {
     height: 100%;
+    cursor: pointer;
   }
 
   .logo>img {
