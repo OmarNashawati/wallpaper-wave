@@ -142,7 +142,6 @@
   .image-review{
     max-width: 100%;
     cursor: zoom-in;
-    aspect-ratio: 16/9;
   }
 
   .image-info{
