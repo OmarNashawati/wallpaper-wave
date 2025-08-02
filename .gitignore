@@ -28,8 +28,3 @@ coverage
 *.sw?
 
 *.tsbuildinfo
-
-
-back-end
-back-end/images-meta-data.json
-back-end/collections.json
